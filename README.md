@@ -46,3 +46,5 @@ Predicts whether a telecom customer will leave (churn) using customer account, s
 
 ## Author
 **K. Belmon Victor** | [LinkedIn](https://linkedin.com/in/belmon-victor-k-81618b38a)
+
+   **Note:** The dataset is not included in this repository (data files © original authors). Download it from [Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn), rename the file to `Telco-Customer-Churn.csv`, and place it in a `data/` folder before running the script.

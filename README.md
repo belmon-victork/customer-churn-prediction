@@ -62,4 +62,4 @@ Predicts whether a telecom customer will leave (churn) using customer account, s
 - Try gradient boosting models such as XGBoost
 
 ## Author
-**K. Belmon Victor** | [LinkedIn](https://linkedin.com/in/belmon-victor-k-81618b38a) | [GitHub](https://github.com/belmon-victor)
+**K. Belmon Victor** | [LinkedIn](https://linkedin.com/in/belmon-victor-k-81618b38a) | [GitHub](https://github.com/belmon-victork)

@@ -25,7 +25,7 @@ Predicts whether a telecom customer will leave (churn) using customer account, s
 ## How to Run
 1. Clone the repository:
 ```bash
-   git clone https://github.com/YOUR-USERNAME/customer-churn-prediction.git
+   git clone https://github.com/belmon-victork/customer-churn-prediction.git
    cd customer-churn-prediction
 ```
 2. Install the dependencies:

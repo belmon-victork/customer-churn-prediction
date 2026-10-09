@@ -27,8 +27,13 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 # ----------------------------------------------------------------------
 # Settings
 # ----------------------------------------------------------------------
-DATA_PATH = Path("data/Telco-Customer-Churn.csv")  # relative path: works on any computer
-IMAGE_DIR = Path("images")
+try:
+    BASE_DIR = Path(__file__).resolve().parent  # folder containing this script
+except NameError:
+    BASE_DIR = Path.cwd()  # fallback for Jupyter / Colab notebooks
+
+DATA_PATH = Path("/content/Telco-Customer-Churn.csv")
+IMAGE_DIR = BASE_DIR / "images"
 SHOW_PLOTS = True  # set to False to only save charts without opening windows
 RANDOM_STATE = 42
 

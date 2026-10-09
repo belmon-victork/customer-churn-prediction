@@ -4,8 +4,9 @@ Predicts whether a telecom customer will leave (churn) using customer account, s
 
 ## Dataset
 - **Telco Customer Churn** dataset (available on Kaggle)
-- About **[7,032]** customers after cleaning, with features such as contract type, tenure, monthly charges, internet service, and payment method
-- Target: `Churn` (Yes/No), where roughly **[26]%** of customers churned
+- 7,043 customers and 21 columns originally; **7,032 customers** after cleaning
+- Features include contract type, tenure, monthly charges, internet service, and payment method
+- Target: `Churn` (Yes/No). **1,869 customers (26.6%) churned**, so the classes are imbalanced
 
 ## Tools Used
 - Python
@@ -14,25 +15,12 @@ Predicts whether a telecom customer will leave (churn) using customer account, s
 - scikit-learn (Pipeline, ColumnTransformer, Logistic Regression, Random Forest)
 
 ## Approach
-1. **Cleaning:** converted `TotalCharges` to numeric, removed **[11]** rows with missing values, and dropped `customerID`.
-2. **EDA:** checked class balance and compared churn across contract types.
+1. **Cleaning:** converted `TotalCharges` to numeric, removed 11 rows with missing values, and dropped `customerID`.
+2. **EDA:** checked class balance and compared churn rates across contract type, internet service, payment method, tenure, and monthly charges.
 3. **Preprocessing:** scaled numeric features and one-hot encoded categorical features inside a scikit-learn `Pipeline` to avoid data leakage.
-4. **Modeling:** trained Logistic Regression and Random Forest on an 80/20 stratified train/test split.
-5. **Evaluation:** 5-fold cross-validation and ROC-AUC on the held-out test set.
-
-## Results
-
-| Model | CV ROC-AUC | Test ROC-AUC |
-|---|---|---|
-| Logistic Regression | [0.xxx] | [0.xxx] |
-| Random Forest | [0.xxx] | [0.xxx] |
-
-Best model: **[model name]**, with a recall of **[xx]%** on the churn class.
-
-## Key Findings
-- **[Finding 1]:** e.g., customers on month-to-month contracts churned at a much higher rate than those on one- or two-year contracts (check your contract chart for the exact percentages).
-- **[Finding 2]:** e.g., how tenure relates to churn (look at your feature importances or coefficients).
-- **[Finding 3]:** e.g., a business recommendation, such as offering longer-term contract incentives to new month-to-month customers.
+4. **Modeling:** trained Logistic Regression and Random Forest (with balanced class weights) on an 80/20 stratified train/test split.
+5. **Evaluation:** 5-fold cross-validation, ROC-AUC, classification reports, and confusion matrices.
+6. **Explainability:** reviewed logistic regression coefficients and random forest feature importances.
 
 ## How to Run
 1. Clone the repository:
@@ -47,11 +35,12 @@ Best model: **[model name]**, with a recall of **[xx]%** on the churn class.
 3. Make sure the dataset is at `data/Telco-Customer-Churn.csv`.
 4. Run the script:
 ```bash
-   python "Project 1 — Customer Churn Prediction.py"
+   python churn_prediction.py
 ```
+   Charts are saved to the `images/` folder.
 
 ## Future Improvements
-- Handle class imbalance (class weights or SMOTE)
+- Try SMOTE for class imbalance
 - Hyperparameter tuning
 - Try gradient boosting models such as XGBoost
 
